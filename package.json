@@ -1,10 +1,10 @@
 {
   "name": "fitness-tracker",
   "version": "0.0.0",
-  "description": "The fitness tracker project. This will be a local(desktop) application that will gather statistics and display analytics. Electron JS technology will be used at first time. <h2>Technologies</h2> <ul>   <li>NodeJS</li>   <li>JavaScript</li>   <li>HTML</li>   <li>CSS</li>   <li>ElectronJS</li>   <li>IO.js</li>   <li>Gulp</li>   <li>Sass</li>   <li>Jade</li>   <li>Coffescript</li>   <li>AngularJS</li>   <li>AJS Material Design</li> </ul> <h2>Links</h2> <ul>   <li><a href=\"https://github.com/Plateful/plateful-mobile/wiki/AngularJS-CoffeeScript-Style-Guide\">AngularJS-CoffeeScript-Style-Guide</a></li>   <li><a href=\"https://scotch.io/tutorials/creating-desktop-applications-with-angularjs-and-github-electron\">Creating Desktop Applications With AngularJS and GitHub Electron</a></li> </ul>",
+  "description": "The fitness tracker project.",
   "main": "index.js",
   "scripts": {
-    "start": "electron .",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,17 @@
   },
   "devDependencies": {
     "electron-prebuilt": "~0.35.1"
+  },
+  "dependencies": {
+    "gulp": "~3.9.0",
+    "gulp-sourcemaps": "~1.6.0",
+    "gulp-concat": "~2.6.0",
+    "gulp-ng-annotate": "~1.1.0",
+    "gulp-uglify": "~1.5.1",
+    "gulp-plumber": "~1.0.1",
+    "watch": "~0.16.0",
+    "gulp-watch": "~4.3.5",
+    "gulp-compass": "~2.1.0",
+    "gulp-jade": "~1.1.0"
   }
 }
