@@ -7,6 +7,12 @@ var paths = {
   jade: {
     compile: './build/html/',
     watch: './src/jade/**/*.jade'
+  },
+  coffee: {
+    ui: {
+      watch: ['./src/coffee/ui/init.coffee', './src/coffee/ui/lib/**/*.coffee', './src/coffee/ui/end.coffee'],
+      compile: ''
+    }
   }
 };
 
@@ -19,7 +25,16 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'), // Prevent pipe breaking caused by errors from gulp plugins.
     watch = require('gulp-watch'), // Watch, that actually is an endless stream.
     sass = require('gulp-sass'), // Sass.
+    coffee = require('gulp-coffee'), // CoffeeScript.
     jade = require('gulp-jade'); // Jade template engine.
+
+
+gulp.task('coffee', function() {
+  gulp.src(paths.coffee.ui.watch)
+    .pipe(coffee())
+    .pipe(concat('app.js'))
+    .pipe(gulp.dest('./build/js/'))
+});
 
 gulp.task('compile_app', function () {
   // It does not work as designed yet. @todo.resolve
@@ -49,17 +64,16 @@ gulp.task('compile_3pjs', function () {
       './bower_components/angular-translate/angular-translate.js',
       './bower_components/angular-animate/angular-animate.js',
       './bower_components/angular-material/angular-material.js',
-      './bower_components/angular-loading-bar/build/loading-bar.js',
+
       './bower_components/angular-ui-router/release/angular-ui-router.js',
       './bower_components/jquery/dist/jquery.js',
-      './bower_components/satellizer/satellizer.js',
       './bower_components/d3/d3.js',
       // @todo resolve moment
       './bower_components/n3-line-chart/build/line-chart.js'
     ])
     .pipe(plumber())
     .pipe(sourcemaps.init())
-    .pipe(concat('3p.js'))
+    .pipe(concat('./build/js/3p.js'))
     .pipe(ngAnnotate())
     .pipe(uglify())
     .pipe(sourcemaps.write())
@@ -80,12 +94,11 @@ gulp.task('jade', function() {
 
 gulp.task('compile_3pcss', function () {
   gulp.src([
-    './bower_components/angular-loading-bar/build/loading-bar.css',
     './bower_components/angular-material/angular-material.css'
     ])
     .pipe(plumber())
     .pipe(sourcemaps.init())
-    .pipe(concat('3p.css'))
+    .pipe(concat('./build/css/3p.css'))
     //.pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('.'));
@@ -96,4 +109,5 @@ gulp.task('watch', function () {
   gulp.watch(paths.jade.watch, ['jade']);
   //gulp.watch(paths.sass.watch, ['compass']);
   gulp.watch(paths.sass.watch, ['sass']);
+  gulp.watch(paths.coffee.ui.watch, ['coffee']);
 });
