@@ -1,6 +1,9 @@
 var paths = {
   lib: ['src/init.js', 'src/lib/**/*.js', 'src/end.js'],
-  scss: ['scss/**/*.scss'],
+  sass: {
+    compile: './build/css/',
+    watch: './src/sass/**/*.sass'
+  },
   jade: {
     compile: './build/html/',
     watch: './src/jade/**/*.jade'
@@ -15,7 +18,7 @@ var gulp = require('gulp'),
     ngAnnotate = require('gulp-ng-annotate'), // Add angularjs dependency injection annotations with ng-annotate.
     plumber = require('gulp-plumber'), // Prevent pipe breaking caused by errors from gulp plugins.
     watch = require('gulp-watch'), // Watch, that actually is an endless stream.
-    compass = require('gulp-compass'), // Sass, Compass.
+    sass = require('gulp-sass'), // Sass.
     jade = require('gulp-jade'); // Jade template engine.
 
 gulp.task('compile_app', function () {
@@ -30,15 +33,10 @@ gulp.task('compile_app', function () {
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('compass', function() {
-  gulp.src(paths.scss)
-    .pipe(plumber())
-    .pipe(compass({
-      css: 'css',
-      sass: 'scss',
-      image: 'images'
-    }))
-    .pipe(gulp.dest('.'));
+gulp.task('sass', function () {
+  gulp.src(paths.sass.watch)
+    .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(gulp.dest(paths.sass.compile));
 });
 
 gulp.task('compile_3pjs', function () {
@@ -96,5 +94,6 @@ gulp.task('compile_3pcss', function () {
 gulp.task('watch', function () {
   //gulp.watch(paths.lib, ['compile_app']);
   gulp.watch(paths.jade.watch, ['jade']);
-  //gulp.watch(paths.scss, ['compass']);
+  //gulp.watch(paths.sass.watch, ['compass']);
+  gulp.watch(paths.sass.watch, ['sass']);
 });
