@@ -1,6 +1,101 @@
 [
   {
-    key: "",
-    title: ""
+    "key": "warm_up",
+    "short_key": "WU",
+    "title": {
+      "en": "Warm up"
+    }
+  },
+  {
+    "key": "neck",
+    "short_key": "SN",
+    "title": {
+      "en": "Neck"
+    }
+  },
+  {
+    "key": "shoulders",
+    "short_key": "SS",
+    "title": {
+      "en": "Shoulders"
+    }
+  },
+  {
+    "key": "chest",
+    "short_key": "FC",
+    "title": {
+      "en": "Chest"
+    }
+  },
+  {
+    "key": "abdomen",
+    "short_key": "FA",
+    "title": {
+      "en": "Abdomen"
+    }
+  },
+  {
+    "key": "biceps",
+    "short_key": "HB",
+    "title": {
+      "en": "Biceps"
+    }
+  },
+  {
+    "key": "triceps",
+    "short_key": "HT",
+    "title": {
+      "en": "Triceps"
+    }
+  },
+  {
+    "key": "forearm",
+    "short_key": "HF",
+    "title": {
+      "en": "Forearm"
+    }
+  },
+  {
+    "key": "top_back",
+    "short_key": "BT",
+    "title": {
+      "en": "Top Back"
+    }
+  },
+  {
+    "key": "bottom_back",
+    "short_key": "BB",
+    "title": {
+      "en": "Bottom Back"
+    }
+  },
+  {
+    "key": "buttocks",
+    "short_key": "LB",
+    "title": {
+      "en": "Buttocks"
+    }
+  },
+  {
+    "key": "front_hip",
+    "short_key": "LF",
+    "title": {
+      "en": "Front hip",
+    }
+  },
+  {
+    "key": "back_hip",
+    "short_key": "LB",
+    "title": {
+      "en": "Back hip",
+    }
+  },
+  {
+    "key": "shin",
+    "short_key": "LC",
+    "title": {
+      "en": "Shin",
+      "ru": "Голень "
+    }
   }
 ]

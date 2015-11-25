@@ -1,7 +1,9 @@
 [
   {
-    key: "",
-    title: "",
-    muscle_keys: []
+    "key": "",
+    "title": {
+      "en": "Skipping rope"
+    },
+    "muscle_key": "WU"
   }
 ]
